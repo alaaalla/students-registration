@@ -1,0 +1,13 @@
+body {
+    background-image: url(../imgs/couleur-ciel_couverture.jpg);
+    background-size: cover;
+    margin: auto;
+    background-position: center center;
+    height: 100vh;
+}
+
+.inner {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    padding: 50px 15px;
+}

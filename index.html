@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body class="bg-dark">
+    <div class="container py-5">
+        <h1 class="text-white">Student registration System</h1>
+        <div class="form-group my-2">
+            <label class="text-white" for="student">student Name</label>
+            <input type="text" name="" id="studentName" class="form-control"
+                placeholder="Enter Your Name">
+            <p id="invalidName" class="text-danger d-none">Please enter a valid name with a first capitale character</p>
+        </div>
+        <div class="form-group my-2">
+            <label class="text-white" for="student">phone Number</label>
+            <input type="number" name="" id="phoneNumber" class="form-control"
+                placeholder="Enrer your phone number">
+            <p id="invalidNumber" class="text-danger d-none">Please enter a valid phone number </p>
+        </div>
+        <div class="form-group my-2">
+            <label class="text-white" for="student">student Email</label>
+            <input type="email" name="" id="studentEmail" class="form-control"
+                placeholder="Enter your email" required>
+            <p id="invalidEmail" class="text-danger d-none">Please enter a valid email </p>
+        </div>
+        <div class="form-group my-2">
+            <label class="text-white" for="student">student GPA</label>
+            <input name="" id="studentGPA" class="form-control"
+                placeholder="Enter your GPA">
+            <p id="invalidGPA" class="text-danger d-none">Please enter a valid value( A | B| C | D | F )</p>
+        </div>
+        <button class="add btn btn-dark my-3">Add Student</button>
+        <button class="btn btn-outline-light d-none" id="save" onclick="saveUpdate()">Save Changes</button>
+        <input type="text" class="search form-control" placeholder="Search with student name">
+        <br>
+        <div class=" d-flex row justify-content-center align-items-center ">
+            <table class="inner table col-lg-8 col-md-10 col-sm-12  text-white text-center border-light">
+                <thead>
+                    <th>index</th>
+                    <th>Student Name</th>
+                    <th>Student Phone Number</th>
+                    <th>Student Email</th>
+                    <th>Student GPA</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </thead>
+                <tbody id="demo">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
