@@ -3,11 +3,11 @@ body {
     background-size: cover;
     margin: auto;
     background-position: center center;
-    height: 100vh;
+    height: 100%;
 }
 
 .inner {
-    background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 15px;
+    background-color: rgba(253, 253, 253, 0.8);
+    border-radius: 5px;
     padding: 50px 15px;
 }

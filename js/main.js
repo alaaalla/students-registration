@@ -3,20 +3,22 @@ var phoneNumber = document.querySelector("#phoneNumber");
 var studentEmail = document.querySelector("#studentEmail");
 var studentGPA = document.querySelector("#studentGPA");
 var save = document.querySelector("#save");
+save.addEventListener("click", saveUpdate);
+var sort = document.querySelector("#sort");
+sort.addEventListener("click", sortingStudents);
 var counter;
 var studentsList;
-studentName.addEventListener("input",validateName);
-phoneNumber.addEventListener("input",validateNumber);
-studentEmail.addEventListener("input",validateEmail);
-studentGPA.addEventListener("input",validateGPA);
-//  studentGPA.addEventListener("input",sortingStudents())
- var add =document.querySelector(".add");
-add.addEventListener("click",addStudent);
+studentName.addEventListener("input", validateName);
+phoneNumber.addEventListener("input", validateNumber);
+studentEmail.addEventListener("input", validateEmail);
+studentGPA.addEventListener("input", validateGPA);
+var add = document.querySelector(".add");
+add.addEventListener("click", addStudent);
 var search = document.querySelector(".search");
-search.addEventListener("input",function(){searchStudent(this.value)})
+search.addEventListener("input", function () { searchStudent(this.value) })
 localStorage.getItem("studentsList") == null ? studentsList = [] : studentsList = JSON.parse(localStorage.getItem("studentsList"));
 displayStudent(studentsList);
-function addStudent(){
+function addStudent() {
   var student = {
     name: studentName.value,
     phone: phoneNumber.value,
@@ -40,11 +42,11 @@ function displayStudent(data) {
   var cartona = ``;
   for (var i = 0; i < data.length; i++) {
     cartona += `<tr>
-            <td>${i + 1}</td>
+    <td>${i + 1}</td>
             <td>${data[i].newName ? data[i].newName : data[i].name}</td>
             <td>${data[i].phone}</td>
             <td>${data[i].email}</td>
-            <td>${data[i].newGPA ? data[i].newGPA:data[i].GPA}</td>
+            <td>${data[i].newGPA ? data[i].newGPA : data[i].GPA}</td>
             <td><button class="btn btn-warning" onclick ="Update(${i})">Update</button></td>
             <td><button onclick="Delete(${i})" class="btn btn-danger">Delete</button></td>
         </tr>`;
@@ -52,7 +54,7 @@ function displayStudent(data) {
   document.getElementById("demo").innerHTML = cartona;
 }
 
-function Delete(index){
+function Delete(index) {
   studentsList.splice(index, 1)
   localStorage.setItem("studentsList", JSON.stringify(studentsList));
   displayStudent(studentsList);
@@ -111,7 +113,7 @@ function validateNumber() {
   }
 }
 function validateEmail() {
-  var regex = /^\w+@\w+.\w+/ig;
+  var regex = /^\w+\@\w+\.\w+/ig;
   if (regex.test(studentEmail.value)) {
     studentEmail.style.border = "none";
     document.getElementById("invalidEmail").classList.add("d-none");
@@ -124,7 +126,7 @@ function validateEmail() {
   }
 }
 function validateGPA() {
-  var regex = /^[A-F]/;
+  var regex = /^[0-4]/;
   if (regex.test(studentGPA.value)) {
     studentGPA.style.border = "none";
     document.getElementById("invalidGPA").classList.add("d-none");
@@ -140,27 +142,27 @@ function searchStudent(input) {
   var newstudentsList = [];
   for (var i = 0; i < studentsList.length; i++) {
     if (studentsList[i].name.toLowerCase().includes(input.toLowerCase())) {
-      var output = input.match(/[a-zA-Z]/ig);
-      console.log(output);
-      studentsList[i].newName = studentsList[i].name.replaceAll(output, `<span class="text-success">${input}</span>`)
+      studentsList[i].newName = studentsList[i].name.replaceAll(input, `<span class="text-success">${input}</span>`)
       newstudentsList.push(studentsList[i]);
     }
     displayStudent(newstudentsList);
   }
 }
 
-// function sortingStudents(){
-//   var gpa =[];
-//   var arr = [];
-//   var newstudentsList =[];
-//   for (var i = 0; i < studentsList.length; i++) {
-//   gpa.push(studentsList[i].GPA);}
-//    arr.push(gpa.sort());
-//    for(var index=0; index<studentsList.length;index ++){
-//   studentsList[index].newGPA = arr[index];
-//   console.log(studentsList[index])
-//   newstudentsList.push(studentsList[index]);
-//   console.log(newstudentsList[index]);
-//   displayStudent(newstudentsList[index]);
-// }
-// }
+function sortingStudents() {
+  let temp;
+  let n = studentsList.length;
+  var newList = [];
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < n - 1; j++) {
+      if (studentsList[j].GPA < studentsList[j + 1].GPA) {
+        temp = studentsList[j];
+        studentsList[j] = studentsList[j + 1];
+        studentsList[j + 1] = temp;
+      }
+    }
+    newList.push(studentsList[i])
+    displayStudent(newList);
+  }
+}
+
