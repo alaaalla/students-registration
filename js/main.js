@@ -151,10 +151,9 @@ function searchStudent(input) {
 
 function sortingStudents() {
   let temp;
-  let n = studentsList.length;
   var newList = [];
-  for (let i = 0; i < n; i++) {
-    for (let j = 0; j < n - 1; j++) {
+  for (let i = 0; i < studentsList.length; i++) {
+    for (let j = 0; j < studentsList.length - 1; j++) {
       if (studentsList[j].GPA < studentsList[j + 1].GPA) {
         temp = studentsList[j];
         studentsList[j] = studentsList[j + 1];
