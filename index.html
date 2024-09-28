@@ -9,28 +9,28 @@
     <link rel="stylesheet" href="./css/main.css">
 </head>
 
-<body class="bg-dark">
+<body>
     <div class="container py-5">
         <h1 class="text-white">Student registration System</h1>
         <div class="form-group my-2">
             <label class="text-white" for="student">student Name</label>
             <input type="text" name="" id="studentName" class="form-control" placeholder="Enter Your Name">
-            <p id="invalidName" class="d-none">Please enter a valid name with a first capitale character</p>
+            <p id="invalidName" class="d-none text-danger">Please enter a valid name with a first capitale character</p>
         </div>
         <div class="form-group my-2">
             <label class="text-white" for="student">phone Number</label>
             <input type="number" name="" id="phoneNumber" class="form-control" placeholder="Enrer your phone number">
-            <p id="invalidNumber" class="d-none">Please enter a valid phone number </p>
+            <p id="invalidNumber" class="d-none text-danger">Please enter a valid phone number </p>
         </div>
         <div class="form-group my-2">
             <label class="text-white" for="student">student Email</label>
             <input type="email" name="" id="studentEmail" class="form-control" placeholder="Enter your email" required>
-            <p id="invalidEmail" class="d-none">Please enter a valid email </p>
+            <p id="invalidEmail" class="d-none text-danger">Please enter a valid email </p>
         </div>
         <div class="form-group my-2">
             <label class="text-white" for="student">student GPA</label>
             <input name="" id="studentGPA" class="form-control" placeholder="Enter your GPA">
-            <p id="invalidGPA" class="d-none">Please enter a valid number between 0 and 4 </p>
+            <p id="invalidGPA" class="d-none text-danger">Please enter a valid number between 0 and 4 </p>
         </div>
         <button class="add btn btn-dark my-3">Add Student</button>
         <button class="btn btn-outline-light d-none" id="save">Save Changes</button>
@@ -39,7 +39,6 @@
         <div class=" d-flex row justify-content-center align-items-center ">
             <table class=" inner table table-responsive-sm col-lg-8 col-md-10 col-sm-12 text-center">
                 <thead>
-                    <th>index</th>
                     <th>Name</th>
                     <th>Phone Number</th>
                     <th>Email</th>

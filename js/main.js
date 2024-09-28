@@ -42,7 +42,6 @@ function displayStudent(data) {
   var cartona = ``;
   for (var i = 0; i < data.length; i++) {
     cartona += `<tr>
-    <td>${i + 1}</td>
             <td>${data[i].newName ? data[i].newName : data[i].name}</td>
             <td>${data[i].phone}</td>
             <td>${data[i].email}</td>
@@ -126,7 +125,7 @@ function validateEmail() {
   }
 }
 function validateGPA() {
-  var regex = /^[0-4]/;
+  var regex = /^[0-4](\.(\d{1}|\d{2}|\d{3}))?$/;
   if (regex.test(studentGPA.value)) {
     studentGPA.style.border = "none";
     document.getElementById("invalidGPA").classList.add("d-none");
